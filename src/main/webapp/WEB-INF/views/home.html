@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th=”http://www.thymeleaf.org”>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<p th:text="|Tôi tên là ${name}|"></p>-->
+<p th:text="${'Tôi tên là:'+name}"></p>
+<div th:each="item,loop : ${list}"
+     th:text="${item}"
+     th:id="${loop.index}">
+</div>
+<p th:text="${age}"></p>
+<p th:if ="${age>=18}">
+    Bạn đủ 18 tuổi
+</p>
+<p th:unless ="${age>=18}">
+    Bạn chưa đủ 18 tuổi
+</p>
+<ul th:switch="${day}">
+    <li th:case="Monday">Đây là thứ 2</li>
+    <li th:case="Tuesday">Đây là thứ 3</li>
+    <li th:case="Wednesday">Đây là thứ 4</li>
+    <li th:case="Thursday">Đây là thứ 5</li>
+    <li th:case="Friday">Đây là thứ 6</li>
+    <li th:case="*">Ngày không xác định</li>
+</ul>
+<p th:text="${#temporals.format(now)}">Hôm nay là</p>
+</body>
+</html>
